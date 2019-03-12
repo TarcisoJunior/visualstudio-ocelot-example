@@ -1,0 +1,42 @@
+﻿{
+  "ReRoutes": [
+    {
+      "DownstreamPathTemplate": "/api/saysomething/{everything}",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5001
+        }
+      ],
+      "UpstreamPathTemplate": "/{everything}",
+      "UpstreamHttpMethod": [ "Get", "Post" ]
+    },
+    {
+      "DownstreamPathTemplate": "/ws/{cep}/json",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "viacep.com.br",
+          "Port": 80
+        }
+      ],
+      "UpstreamPathTemplate": "/cep/{cep}",
+      "UpstreamHttpMethod": [ "Get" ]
+    },
+    {
+      "DownstreamPathTemplate": "/v1/cnpj/{cnpj}",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "www.receitaws.com.br",
+          "Port": 443
+        }
+      ],
+      "UpstreamPathTemplate": "/cnpj/{cnpj}",
+      "UpstreamHttpMethod": [ "Get" ]
+    }  ],
+  "GlobalConfiguration": {
+    "BaseUrl": "https://localhost"
+  }
+}
